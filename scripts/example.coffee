@@ -102,5 +102,5 @@ module.exports = (robot) ->
        robot.brain.set 'totalBeers', beersHad+1
   
    robot.respond /sleep it off/i, (res) ->
-     robot.brain.set 'totalSodas', 0
-     res.reply 'zzzzz'
+     robot.brain.set 'totalBeers', 0
+     res.reply 'Zzzzz'
