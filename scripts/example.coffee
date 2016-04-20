@@ -10,19 +10,19 @@
 
 module.exports = (robot) ->
 
-   robot.hear /badger/i, (res) ->
-     res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
-  #
-  # robot.respond /open the (.*) doors/i, (res) ->
-  #   doorType = res.match[1]
-  #   if doorType is "pod bay"
-  #     res.reply "I'm afraid I can't let you do that."
-  #   else
-  #     res.reply "Opening #{doorType} doors"
-  #
-  # robot.hear /I like pie/i, (res) ->
-  #   res.emote "makes a freshly baked pie"
-  #
+   robot.hear /stabiel/i, (res) ->
+     res.send "Stabiel? STABIEL? ONZE SOFTWARE IS NOG NOOIT ZO STABIEL GEWEEST!"
+  
+   robot.respond /open the (.*) doors/i, (res) ->
+     doorType = res.match[1]
+     if doorType is "pod bay"
+       res.reply "I'm afraid I can't let you do that."
+     else
+       res.reply "Opening #{doorType} doors"
+  
+   robot.hear /I like pie/i, (res) ->
+     res.emote "makes a freshly baked pie"
+  
   # lulz = ['lol', 'rofl', 'lmao']
   #
   # robot.respond /lulz/i, (res) ->
@@ -32,14 +32,14 @@ module.exports = (robot) ->
   #   res.send "#{res.message.text}? That's a Paddlin'"
   #
   #
-  # enterReplies = ['Hi', 'Target Acquired', 'Firing', 'Hello friend.', 'Gotcha', 'I see you']
-  # leaveReplies = ['Are you still there?', 'Target lost', 'Searching']
-  #
-  # robot.enter (res) ->
-  #   res.send res.random enterReplies
-  # robot.leave (res) ->
-  #   res.send res.random leaveReplies
-  #
+   enterReplies = ['Hi', 'Target Acquired', 'Firing', 'Hello friend.', 'Gotcha', 'I see you']
+   leaveReplies = ['Are you still there?', 'Target lost', 'Searching']
+  
+   robot.enter (res) ->
+     res.send res.random enterReplies
+   robot.leave (res) ->
+     res.send res.random leaveReplies
+  
   # answer = process.env.HUBOT_ANSWER_TO_THE_ULTIMATE_QUESTION_OF_LIFE_THE_UNIVERSE_AND_EVERYTHING
   #
   # robot.respond /what is the answer to the ultimate question of life/, (res) ->
@@ -93,7 +93,7 @@ module.exports = (robot) ->
      # Get number of beers had (coerced to a number).
      beersHad = robot.brain.get('totalBeers') * 1 or 0
   
-     if beersHad > 4
+     if beersHad > 2
        res.reply "I'm feeling fuzzy!"
   
      else
