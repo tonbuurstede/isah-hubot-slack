@@ -13,6 +13,9 @@ module.exports = (robot) ->
    robot.hear /stabiel/i, (res) ->
      res.send "Stabiel? STABIEL? ONZE SOFTWARE IS NOG NOOIT ZO STABIEL GEWEEST!"
   
+   robot.hear /werken/i, (res) ->
+     res.send "Werken? D'r werkt er hier maar ene!"
+  
    robot.respond /open the (.*) doors/i, (res) ->
      doorType = res.match[1]
      if doorType is "pod bay"
@@ -89,18 +92,26 @@ module.exports = (robot) ->
   #   if res?
   #     res.reply "DOES NOT COMPUTE"
   #
-   robot.respond /have a beer/i, (res) ->
+   robot.respond /biertje/i, (res) ->
      # Get number of beers had (coerced to a number).
      beersHad = robot.brain.get('totalBeers') * 1 or 0
   
-     if beersHad > 2
-       res.reply "I'm feeling fuzzy!"
-  
+     if beersHad > 3
+       res.reply "'t is weer tijd voor friet van ons Aniet!"
      else
-       res.reply 'Sure!'
+       if beersHad > 2
+         res.reply "Nog een met de jas aan!"
+       else
+         if beersHad > 1
+           res.reply "De laatste dan!"
+         else
+           if beersHad > 0
+             res.reply "Op één been kun je niet lopen!"
+           else
+             res.reply 'Lekker!'
+    
+     robot.brain.set 'totalBeers', beersHad+1
   
-       robot.brain.set 'totalBeers', beersHad+1
-  
-   robot.respond /sleep it off/i, (res) ->
+   robot.respond /koffie/i, (res) ->
      robot.brain.set 'totalBeers', 0
-     res.reply 'Zzzzz'
+     res.reply 'Wie gaat er halen?'
