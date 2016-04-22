@@ -106,7 +106,7 @@ module.exports = (robot) ->
            res.reply "De laatste dan!"
          else
            if beersHad > 0
-             res.reply "Op één been kun je niet lopen!"
+             res.reply "Op een been kun je niet lopen!"
            else
              res.reply 'Lekker!'
     
